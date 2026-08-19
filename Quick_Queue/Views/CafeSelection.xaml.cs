@@ -1,4 +1,4 @@
-using Quick_Queue.ViewModels;
+using Quick_Queue.Views;
 
 namespace Quick_Queue.Views;
 

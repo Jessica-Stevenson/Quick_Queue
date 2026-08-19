@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Window xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        x:Class="Quick_Queue.Views.CafeSelection"
-        Title="Select Café">
+        x:Class="Quick_Queue.Views.CafeSelection">
 
     <ContentPage>
         <VerticalStackLayout Padding="20" Spacing="20">
@@ -12,24 +11,41 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
 
+            <Picker Title="Select a location"
+                    ItemsSource="{Binding Cafes}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedCafe}" />
+
+            <!-- Cafe Card -->
             <Border Stroke="#e0e0e0"
                     Background="#f7f7f7"
                     StrokeThickness="1"
-                    Padding="10"
-                    StrokeShape="RoundRectangle 12">
+                    Padding="15"
+                    StrokeShape="RoundRectangle 12"
+                    IsVisible="{Binding SelectedCafe}">
 
-                <Picker Title="Select a location"
-                        ItemsSource="{Binding Cafes}"
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding SelectedCafe}" />
+                <VerticalStackLayout Spacing="10">
+
+                    <Image Source="{Binding SelectedCafe.ImagePath}"
+                           HeightRequest="180"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="{Binding SelectedCafe.Name}"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <Button Text="Continue"
+                            BackgroundColor="#6C4CC2"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="45"
+                            Command="{Binding ContinueCommand}" />
+
+                </VerticalStackLayout>
+
             </Border>
-
-            <Button Text="Continue"
-                    BackgroundColor="#6C4CC2"
-                    TextColor="White"
-                    CornerRadius="10"
-                    HeightRequest="45"
-                    Command="{Binding ContinueCommand}" />
 
         </VerticalStackLayout>
     </ContentPage>

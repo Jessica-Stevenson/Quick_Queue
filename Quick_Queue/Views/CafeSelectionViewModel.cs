@@ -1,26 +1,21 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Quick_Queue.Views;
+using Quick_Queue.Models;
 
-namespace Quick_Queue.ViewModels;
-
-public class CafeInfo
-{
-    public string Name { get; set; }
-    public double ServiceTimePerPerson { get; set; }
-}
+namespace Quick_Queue.Views;
 
 public class CafeSelectionViewModel : BindableObject
 {
     public ObservableCollection<CafeInfo> Cafes { get; } =
         new ObservableCollection<CafeInfo>
         {
-            new CafeInfo { Name = "Main Campus Café", ServiceTimePerPerson = 2 },
-            new CafeInfo { Name = "Library Café",      ServiceTimePerPerson = 3 },
-            new CafeInfo { Name = "Tech Hub Café",     ServiceTimePerPerson = 1.5 }
+            new CafeInfo { Name = "Main Campus Café", ImagePath = "cafeone.png" },
+            new CafeInfo { Name = "Library Café", ImagePath = "cafetwo.png" },
+            new CafeInfo { Name = "Tech Hub Café", ImagePath = "cafethree.png" }
         };
 
     private CafeInfo _selectedCafe;
+
     public CafeInfo SelectedCafe
     {
         get => _selectedCafe;
@@ -36,8 +31,8 @@ public class CafeSelectionViewModel : BindableObject
         if (SelectedCafe == null)
             return;
 
-        Application.Current.OpenWindow(new QueuePage());
+        SelectedCafeStore.CurrentCafe = SelectedCafe;
+
+        Application.Current.OpenWindow(new CafeDetails());
     });
-
-
 }

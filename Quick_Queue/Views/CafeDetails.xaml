@@ -22,7 +22,48 @@
                 & any additional UI code you wanna add
             -->
 
+                            <Label
+                    Text="Current Queue"
+                    FontSize="24"
+                    FontAttributes="Bold" />
+
+                            <Label
+                    Text="Number of people waiting:" />
+
+                            <Entry
+                    x:Name="PeopleWaitingEntry"
+                    Placeholder="Enter number of people"
+                    Keyboard="Numeric" />
+
+                            <Button
+                    Text="Calculate Wait"
+                    Clicked="OnCalculateWaitClicked" />
+
+                            <VerticalStackLayout
+                    x:Name="QueueResultLayout"
+                    IsVisible="False"
+                    Spacing="8">
+
+                                <Label
+                        x:Name="PeopleWaitingLabel"
+                        FontSize="18" />
+
+                                <Label
+                        x:Name="EstimatedWaitLabel"
+                        FontSize="18" />
+
+                                <Label
+                        x:Name="QueueStatusLabel"
+                        FontSize="20"
+                        FontAttributes="Bold" />
+
+                            <Label
+                        x:Name="RecommendationLabel"
+                        FontSize="18" />    
+
+                </VerticalStackLayout>
         </VerticalStackLayout>
+
     </ContentPage>
 
 </Window>

@@ -7,45 +7,73 @@
         <VerticalStackLayout Padding="20" Spacing="20">
 
             <Label Text="Choose a Café"
-                   FontSize="26"
+                   FontSize="28"
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
 
+            <!-- Dropdown -->
             <Picker Title="Select a location"
                     ItemsSource="{Binding Cafes}"
                     ItemDisplayBinding="{Binding Name}"
                     SelectedItem="{Binding SelectedCafe}" />
 
-            <!-- Cafe Card -->
-            <Border Stroke="#e0e0e0"
-                    Background="#f7f7f7"
-                    StrokeThickness="1"
-                    Padding="15"
-                    StrokeShape="RoundRectangle 12"
-                    IsVisible="{Binding SelectedCafe}">
+            <!-- One card that changes based off of selected card -->
+                <Border Stroke="#e0e0e0"
+                        BackgroundColor="#e0e0e0"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="15"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Center">
 
-                <VerticalStackLayout Spacing="10">
+                <Grid RowDefinitions="*,Auto,Auto">
 
+                    <!-- Centered text when no cafe has been selected -->
+                    <Label Text="No Cafe Selected"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="Gray"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Grid.Row="0"
+                           IsVisible="{Binding SelectedCafe, TargetNullValue=True}" />
+
+                    <!-- Image when been selected -->
                     <Image Source="{Binding SelectedCafe.ImagePath}"
                            HeightRequest="180"
                            Aspect="AspectFill"
-                           HorizontalOptions="Center" />
+                           HorizontalOptions="Center"
+                           Grid.Row="0"
+                           IsVisible="{Binding SelectedCafe}" />
 
+                    <!-- Name when selected -->
                     <Label Text="{Binding SelectedCafe.Name}"
-                           FontSize="22"
+                           FontSize="24"
                            FontAttributes="Bold"
-                           HorizontalOptions="Center" />
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"
+                           Grid.Row="1"
+                           IsVisible="{Binding SelectedCafe}" />
 
+                    <!-- The continue button when selected -->
                     <Button Text="Continue"
                             BackgroundColor="#6C4CC2"
                             TextColor="White"
                             CornerRadius="10"
-                            HeightRequest="45"
-                            Command="{Binding ContinueCommand}" />
+                            HeightRequest="50"
+                            WidthRequest="200"
+                            HorizontalOptions="Center"
+                            Margin="0,10,0,0"
+                            Grid.Row="2"
+                            Command="{Binding ContinueCommand}"
+                            IsVisible="{Binding SelectedCafe}" />
 
-                </VerticalStackLayout>
+                </Grid>
 
             </Border>
+
+
+
 
         </VerticalStackLayout>
     </ContentPage>

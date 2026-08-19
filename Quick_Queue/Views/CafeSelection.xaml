@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Window xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Quick_Queue.Views.CafeSelection"
-             Title="CafeSelection">
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="Quick_Queue.Views.CafeSelection"
+        Title="Select Café">
+
+    <ContentPage>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Choose a Café"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Border Stroke="#e0e0e0"
+                    Background="#f7f7f7"
+                    StrokeThickness="1"
+                    Padding="10"
+                    StrokeShape="RoundRectangle 12">
+
+                <Picker Title="Select a location"
+                        ItemsSource="{Binding Cafes}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedCafe}" />
+            </Border>
+
+            <Button Text="Continue"
+                    BackgroundColor="#6C4CC2"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Command="{Binding ContinueCommand}" />
+
+        </VerticalStackLayout>
+    </ContentPage>
+
 </Window>
-    
-    
-    <<!-- Tegan -->
-     <<!-- This is the page for cafe selection -->

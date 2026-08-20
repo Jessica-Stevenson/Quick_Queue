@@ -4,8 +4,6 @@ public partial class CafeCard : Window
 {
 	public CafeCard()
 	{
-		//Tegan
-		//CS for the card
 		InitializeComponent();
 		Page = new ContentPage()
 		{

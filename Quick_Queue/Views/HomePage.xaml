@@ -3,6 +3,113 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Quick_Queue.Views.HomePage"
              Title="HomePage">
+
+    <ContentPage BackgroundColor="#ffffff">
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="25">
+
+                <!-- Title -->
+                <Label Text="Welcome to QuikQueue!"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+
+                <!-- Subtitle -->
+                <Label Text="What would you like to do? :)"
+                       FontSize="18"
+                       TextColor="Gray"
+                       HorizontalOptions="Center" />
+
+                <!-- Navigation Cards -->
+                <VerticalStackLayout Spacing="20">
+
+                    <!-- Select Cafe Card -->
+                    <Border Stroke="#e0e0e0"
+                            Background="#f7f7f7"
+                            StrokeThickness="1"
+                            Padding="20"
+                            StrokeShape="RoundRectangle 12">
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Select A Cafe"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" />
+
+                            <Label Text="Choose your preferred cafe location :)"
+                                   FontSize="16"
+                                   TextColor="Gray"
+                                   HorizontalOptions="Center" />
+
+                            <Button Text="Go"
+                                    BackgroundColor="#6c4cc2"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    HeightRequest="45"
+                                    HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- View Menu Card -->
+                    <Border Stroke="#e0e0e0"
+                            Background="#f7f7f7"
+                            StrokeThickness="1"
+                            Padding="20"
+                            StrokeShape="RoundRectangle 12">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="View Menu"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" />
+
+                            <Label Text="Browse available food and drinks"
+                                   FontSize="16"
+                                   TextColor="Gray"
+                                   HorizontalOptions="Center" />
+
+                            <Button Text="Go"
+                                    BackgroundColor="#6C4CC2"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    HeightRequest="45"
+                                    HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <!-- My Orders Card -->
+                    <Border Stroke="#e0e0e0"
+                            Background="#f7f7f7"
+                            StrokeThickness="1"
+                            Padding="20"
+                            StrokeShape="RoundRectangle 12">
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="My Orders"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" />
+
+                            <Label Text="Track your current and past orders"
+                                   FontSize="16"
+                                   TextColor="Gray"
+                                   HorizontalOptions="Center" />
+
+                            <Button Text="Go"
+                                    BackgroundColor="#6C4CC2"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    HeightRequest="45"
+                                    HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+
+                    </Border>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
 </Window>
     
-    <!--Noa this is the homepage -->
+    

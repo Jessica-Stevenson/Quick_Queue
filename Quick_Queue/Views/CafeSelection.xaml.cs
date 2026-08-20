@@ -1,12 +1,13 @@
-using Quick_Queue.Views;
+using Quick_Queue.Services;
 
 namespace Quick_Queue.Views;
 
-public partial class CafeSelection : Window
+public partial class CafeSelection : ContentPage
 {
-    public CafeSelection()
+    public CafeSelection(DatabaseService database)
     {
         InitializeComponent();
-        Page.BindingContext = new CafeSelectionViewModel();
+
+        BindingContext = new CafeSelectionViewModel(database);
     }
 }

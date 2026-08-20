@@ -1,10 +1,13 @@
-﻿namespace Quick_Queue
+﻿namespace Quick_Queue;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute(
+            nameof(Views.CafeDetails),
+            typeof(Views.CafeDetails));
     }
 }

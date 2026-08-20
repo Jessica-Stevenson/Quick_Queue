@@ -36,7 +36,7 @@ namespace Quick_Queue.Services
                 {
                     Name = "Main Campus Café",
                     Location = "Main Campus",
-                    ImageName = "main_campus_cafe.png",
+                    ImageName = "cafeone.png",
                     ServiceTime = 2.0,
                     IsActive = true
                 },
@@ -45,7 +45,7 @@ namespace Quick_Queue.Services
                 {
                     Name = "Library Café",
                     Location = "Campus Library",
-                    ImageName = "library_cafe.png",
+                    ImageName = "cafetwo.png",
                     ServiceTime = 3.0,
                     IsActive = true
                 },
@@ -54,7 +54,7 @@ namespace Quick_Queue.Services
                 {
                     Name = "Student Hub Café",
                     Location = "Student Hub",
-                    ImageName = "student_hub_cafe.png",
+                    ImageName = "cafethree.png",
                     ServiceTime = 1.5,
                     IsActive = true
                 }

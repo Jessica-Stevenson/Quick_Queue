@@ -2,5 +2,5 @@
 
 public static class SelectedCafeStore
 {
-    public static CafeInfo? CurrentCafe { get; set; }
+    public static Cafe? CurrentCafe { get; set; }
 }

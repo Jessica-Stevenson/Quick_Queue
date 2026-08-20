@@ -1,22 +1,19 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Quick_Queue.Models;
+using Quick_Queue.Services;
 
 namespace Quick_Queue.Views;
 
 public class CafeSelectionViewModel : BindableObject
 {
-    public ObservableCollection<CafeInfo> Cafes { get; } =
-        new ObservableCollection<CafeInfo>
-        {
-            new CafeInfo { Name = "Main Campus Café", ImagePath = "cafeone.png" },
-            new CafeInfo { Name = "Library Café", ImagePath = "cafetwo.png" },
-            new CafeInfo { Name = "Tech Hub Café", ImagePath = "cafethree.png" }
-        };
+    private readonly DatabaseService _database;
 
-    private CafeInfo _selectedCafe;
+    public ObservableCollection<Cafe> Cafes { get; } = new();
 
-    public CafeInfo SelectedCafe
+    private Cafe? _selectedCafe;
+
+    public Cafe? SelectedCafe
     {
         get => _selectedCafe;
         set
@@ -26,13 +23,36 @@ public class CafeSelectionViewModel : BindableObject
         }
     }
 
-    public ICommand ContinueCommand => new Command(() =>
+    public ICommand ContinueCommand { get; }
+
+    public CafeSelectionViewModel(DatabaseService database)
+    {
+        _database = database;
+
+        ContinueCommand = new Command(async () => await OnContinueClicked());
+
+        LoadCafes();
+    }
+
+    private async void LoadCafes()
+    {
+        var cafes = await _database.GetCafesAsync();
+
+        Cafes.Clear();
+
+        foreach (var cafe in cafes)
+        {
+            Cafes.Add(cafe);
+        }
+    }
+
+    private async Task OnContinueClicked()
     {
         if (SelectedCafe == null)
             return;
 
         SelectedCafeStore.CurrentCafe = SelectedCafe;
 
-        Application.Current.OpenWindow(new CafeDetails());
-    });
+        await Shell.Current.GoToAsync(nameof(CafeDetails));
+    }
 }

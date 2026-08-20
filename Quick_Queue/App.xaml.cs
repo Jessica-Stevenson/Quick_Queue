@@ -1,6 +1,4 @@
-﻿using Quick_Queue.Views;
-
-namespace Quick_Queue;
+﻿namespace Quick_Queue;
 
 public partial class App : Application
 {
@@ -9,8 +7,9 @@ public partial class App : Application
         InitializeComponent();
     }
 
-    protected override Window CreateWindow(IActivationState? activationState)
+    protected override Window CreateWindow(
+        IActivationState? activationState)
     {
-        return new CafeSelection();
+        return new Window(new AppShell());
     }
 }

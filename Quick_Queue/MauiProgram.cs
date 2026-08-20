@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Quick_Queue.Services;
+using Quick_Queue.Views;
 
 namespace Quick_Queue
 {
@@ -7,6 +9,7 @@ namespace Quick_Queue
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -15,8 +18,13 @@ namespace Quick_Queue
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<DatabaseService>();
+
+            builder.Services.AddTransient<CafeSelection>();
+            builder.Services.AddTransient<CafeDetails>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

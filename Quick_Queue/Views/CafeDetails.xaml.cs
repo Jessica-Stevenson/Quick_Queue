@@ -2,26 +2,35 @@ using Quick_Queue.Models;
 
 namespace Quick_Queue.Views;
 
-public partial class CafeDetails : Window
+public partial class CafeDetails : ContentPage
 {
     public CafeDetails()
     {
         InitializeComponent();
 
-        // Bind the specically chosen cafe to this window
         BindingContext = new
         {
             CurrentCafe = SelectedCafeStore.CurrentCafe
         };
+    }
 
-         private void OnCalculateWaitClicked(object sender, EventArgs e)
+    private async void OnCalculateWaitClicked(object sender, EventArgs e)
     {
-        if (_cafe == null)
+        Cafe? cafe = SelectedCafeStore.CurrentCafe;
+
+        if (cafe == null)
+        {
+            await DisplayAlert(
+                "No Café Selected",
+                "Please select a café first.",
+                "OK");
+
             return;
+        }
 
         if (!int.TryParse(PeopleWaitingEntry.Text, out int peopleWaiting))
         {
-            DisplayAlert(
+            await DisplayAlert(
                 "Invalid Number",
                 "Please enter a valid number of people waiting.",
                 "OK");
@@ -31,7 +40,7 @@ public partial class CafeDetails : Window
 
         if (peopleWaiting < 0)
         {
-            DisplayAlert(
+            await DisplayAlert(
                 "Invalid Number",
                 "The number of people cannot be negative.",
                 "OK");
@@ -39,8 +48,7 @@ public partial class CafeDetails : Window
             return;
         }
 
-        // Calculate estimated waiting time
-        double estimatedWait = peopleWaiting * _cafe.ServiceTime;
+        double estimatedWait = peopleWaiting * cafe.ServiceTime;
 
         string status;
         string recommendation;

@@ -3,4 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Quick_Queue.Views.HomePage"
              Title="Home">
-</ContentPage>
+</ContentPage> 
+    
+    
+    

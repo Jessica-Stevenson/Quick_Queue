@@ -303,3 +303,4 @@ public partial class HomePage : ContentPage
         resultsCard.IsVisible = false;
     }
 }
+

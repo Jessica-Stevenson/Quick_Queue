@@ -13,6 +13,10 @@
 
         <VerticalStackLayout Spacing="6">
 
+            <Image Source="{Binding ImageName}"
+                   HeightRequest="150"
+                   Aspect="AspectFill" />
+
             <Label Text="{Binding Name}"
                    FontSize="20"
                    FontAttributes="Bold" />

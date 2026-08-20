@@ -12,7 +12,7 @@
         HorizontalOptions="Center">
 
         <Label
-            Text="Welcome to QuikQueue!"
+            Text="Welcome to QuikQueue! :)"
             FontSize="28"
             FontAttributes="Bold"
             HorizontalOptions="Center" />
